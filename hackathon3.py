@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import glob
 
 # Set the directory containing your NetCDF files
-data_dir = "E:/jupyter/DATA/wrf MAM/daily_output/"
+data_dir = "test_data_set/"
 
 # Get a list of all NetCDF files in the directory
 file_paths = glob.glob(data_dir + "*.nc")
@@ -30,7 +30,7 @@ end_date = merged_ds['time'][-1].values
 merged_ds = merged_ds.sel(time=slice(start_date, end_date))
 
 # Set the output file path
-output_path = "E:/jupyter/DATA/wrf MAM/merged_wrf_data.nc"
+output_path = "E:/merged_wrf_data.nc"
 
 # Save the merged dataset to NetCDF format
 merged_ds.to_netcdf(output_path)
@@ -38,7 +38,7 @@ merged_ds.to_netcdf(output_path)
 print(f"Merged dataset saved to {output_path}")
 
 # Load the merged data
-ds = xr.open_dataset('E:/jupyter/DATA/wrf MAM/merged_wrf_data.nc')
+ds = xr.open_dataset('E:/merged_wrf_data.nc')
 
 print(ds)
 
